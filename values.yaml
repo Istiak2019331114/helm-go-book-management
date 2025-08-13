@@ -1,0 +1,20 @@
+replicaCount: 2
+
+image:
+  repository: istiaka2i/bookapp
+  tag: v1.0
+  pullPolicy: Always
+
+service:
+  type: NodePort
+  port: 4000
+  targetPort: 8080
+  nodePort: 30080
+
+containerPort: 8080
+args:
+  - "--port"
+  - "8080"
+
+labels:
+  app: go-book-app
